@@ -1,9 +1,20 @@
 # Realtime Chat
 
-A multi-room chat application built on **WebSockets (Socket.io)** with live presence,
-typing indicators, message history, and JWT-authenticated connections.
+A multi-room chat **product** built on **WebSockets (Socket.io)** with live presence,
+typing indicators, message history, and JWT-authenticated connections — shipped as a
+**native mobile app (React Native / Expo)** plus a web client, both on one backend.
 
-**Stack:** TypeScript · Node.js · Express · Socket.io · React (Vite)
+**Stack:** TypeScript · Node.js · Express · Socket.io · PostgreSQL · React Native (Expo) · React (Vite)
+
+## Clients
+
+| Client | Path | Run |
+|---|---|---|
+| 📱 **Mobile app** (iOS + Android) | `mobile/` | `cd mobile && npm install && npx expo start` → scan QR in Expo Go |
+| 🌐 Web | `client/` | `cd client && npm install && npm run dev` |
+
+The mobile app and web client share the exact same `useChat` socket hook against the
+same server — the backend is a real product API, not coupled to a website.
 
 ![rooms · presence · typing](docs/demo.png)
 
@@ -38,11 +49,17 @@ typing indicators, message history, and JWT-authenticated connections.
 # terminal 1 — server (:4000)
 cd server && npm install && npm run dev
 
-# terminal 2 — client (:5173)
-cd client && npm install && npm run dev
+# terminal 2 — mobile app (Expo)
+cd mobile && npm install && npx expo start
 ```
 
-Open http://localhost:5173 in **two browser windows**, join with different usernames, and chat in real time.
+Then install **Expo Go** on your phone and scan the QR code.
+
+> **On a physical phone**, `localhost` points at the phone, not your laptop. Set
+> `expo.extra.serverUrl` in `mobile/app.json` to your machine's LAN IP
+> (e.g. `http://192.168.1.5:4000`) or your deployed server URL, then reload.
+
+Web client (optional): `cd client && npm install && npm run dev` → open http://localhost:5173 in two windows.
 
 Run the tests:
 

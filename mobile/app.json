@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Realtime Chat",
+    "slug": "realtime-chat",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0f1117",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.divyanshu.realtimechat" },
+    "android": { "package": "com.divyanshu.realtimechat" },
+    "extra": {
+      "serverUrl": "http://localhost:4000"
+    }
+  }
+}
